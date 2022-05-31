@@ -1,0 +1,39 @@
+syntax = "proto3";
+package mafia;
+option go_package = "grpc-go/hw5_grpc/mafia/mafia";
+service Reverse {
+  rpc Name( Request) returns (Response) {}
+  rpc Ping( Request) returns (PingResponse) {}
+  rpc PingMembers( Request) returns (PingResponse) {}
+  rpc PingResultDay( Request) returns (ResultVoteDay) {}
+  rpc Exit( Request) returns (Response) {}
+  rpc Vote( Request) returns (Response) {}
+  rpc NightVote( Request) returns (Response) {}
+  rpc ListPlayers( Request) returns (Response) {}
+  rpc ChangeTime( Request) returns (Response) {}
+}
+message Request { string message = 1;
+}
+message Response {string message = 1;
+}
+
+message PingResponse {
+  string message = 1;
+  string name1 = 2;
+  string name2 = 3;
+  string name3 = 4;
+  string name4 = 5;
+}
+message ResultVote {
+  string status = 1;
+  string doctor = 2;
+  string patient = 3;
+  string mafia = 4;
+  string spirit = 5;
+
+}
+
+message ResultVoteDay {
+  string status = 1;
+  string spirit = 2;
+}

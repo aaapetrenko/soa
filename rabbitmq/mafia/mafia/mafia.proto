@@ -1,0 +1,22 @@
+syntax = "proto3";
+package mafia;
+option go_package = "grpc-go/hw5_grpc/mafia/mafia";
+service Reverse {
+  rpc Do( Request) returns (SResponse) {}
+  rpc Answer( Request) returns (Response) {}
+  rpc Exit( Request) returns (SResponse) {}
+}
+message Request { string url1 = 1;
+  string url2 = 2;
+}
+message SResponse {
+  string pong = 1;
+}
+message SRequest {
+  string ping = 1;
+}
+message Response {
+  string url1 = 1;
+  string url2 = 2;
+  string count = 3;
+}
